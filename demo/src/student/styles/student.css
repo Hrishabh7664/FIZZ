@@ -1,0 +1,199 @@
+.student-app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+}
+
+.student-top-navbar {
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar-brand-student {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.student-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.student-main-layout {
+  display: flex;
+  flex: 1;
+}
+
+.student-sidebar {
+  width: 250px;
+  background: #ffffff;
+  border-right: 1px solid var(--border-light);
+  padding: 1.25rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.sidebar-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.sidebar-nav-item:hover {
+  background: var(--bg-muted);
+  color: var(--primary);
+}
+
+.sidebar-nav-item.active {
+  background: #eff6ff;
+  color: var(--primary);
+  font-weight: 700;
+  border-left: 3px solid var(--primary);
+}
+
+.student-content-area {
+  flex: 1;
+  padding: 2rem 2.25rem;
+  max-width: 1200px;
+}
+
+@media (max-width: 991px) {
+  .student-sidebar {
+    position: fixed;
+    top: 60px;
+    left: -260px;
+    bottom: 0;
+    z-index: 999;
+    box-shadow: var(--shadow-lg);
+    transition: left 0.25s ease;
+  }
+  .student-sidebar.mobile-open {
+    left: 0;
+  }
+  .student-content-area {
+    padding: 1.25rem;
+  }
+}
+
+/* Reusable Student Card */
+.student-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-xs);
+  margin-bottom: 1.25rem;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.student-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.student-page-title h1 {
+  font-size: 1.6rem;
+  color: var(--primary-dark);
+  margin-bottom: 0.25rem;
+}
+
+.student-page-title p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+.student-avatar-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-light);
+}
+
+.student-user-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-muted);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+}
+
+/* Dropdown */
+.notif-dropdown {
+  position: absolute;
+  right: 0;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.notif-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.notif-item:hover {
+  background: var(--bg-muted);
+}
+
+/* Student Dashboard Responsive 2-Column Layout */
+.student-dashboard-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.15fr);
+  gap: 1.75rem;
+  align-items: start;
+  width: 100%;
+}
+
+.student-dashboard-main-grid > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.student-dashboard-feed-col,
+.student-dashboard-events-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 991px) {
+  .student-dashboard-main-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
